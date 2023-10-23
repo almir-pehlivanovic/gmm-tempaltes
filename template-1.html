@@ -1,0 +1,484 @@
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 1</title>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/tailwind-config.js"></script>
+</head>
+<body class="font-source-sans-pro">
+  <div class="min-h-screen h-auto bg-hgMenu-250 flex flex-col">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center pl-3 sm:pl-5 pr-2 py-2.5 bg-green-lawi-100 text-white">
+      <div class="flex justify-between items-center gap-3.5">
+        <button type="button" aria-label="Toogle Sidebar Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="28" fill="none"><path d="M0 0h36v4H0V0ZM0 12h36v4H0v-4ZM0 24h36v4H0v-4Z" fill="#ECF0F1"/></svg>
+        </button>
+        <a href="/" title="Home">
+          <img src="/assets/images/logo.png" alt="Logo" width="160px" height="32px">
+        </a>
+      </div>
+      <div class="flex justify-between items-center gap-2.5">
+        <button type="button" aria-label="Chat" class="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="none"><mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35"><path fill="#D9D9D9" d="M0 0h35v35H0z"/></mask><g mask="url(#a)"><path d="M3.938 23.734V4.922c0-.365.121-.669.364-.912s.547-.364.912-.364h18.192c.365 0 .669.121.912.364s.364.547.364.912V17.28c0 .364-.121.668-.364.911a1.237 1.237 0 0 1-.912.365H9.078l-5.14 5.177Zm6.453 1.24c-.365 0-.675-.128-.93-.382a1.267 1.267 0 0 1-.383-.93v-2.188h18.047l.474.474V8.75h2.188c.364 0 .668.121.91.364.244.243.366.547.366.912v20.088l-5.141-5.14H10.39ZM22.495 5.833H6.125v12.615l2.042-2.079h14.328V5.833Z" fill="#fff"/></g></svg>
+          <span class="w-4 h-4 bg-red-lawi-100 rounded-full absolute -top-1 -right-1 flex justify-center items-center text-xs font-bold"></span>
+        </button>
+        <button type="button" aria-label="Profile Dropdown" class="flex items-center justify-between gap-1">
+          <img
+            class="w-9 h-9 object-cover border border-white  rounded-md"
+            alt="Logo"
+            height="36px"
+            width="36px"
+            src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&q=60&w=36&h=36&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
+            <path d="M5 5L0.669872 0.5L9.33013 0.5L5 5Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="mx-auto w-full max-w-[1005px] my-14 px-3">
+      <section class="p-5 sm:pb-8 rounded-lg bg-white">
+        <div class="flex justify-between items-center flex-wrap gap-y-1">
+          <h1 class="text-xl sm:text-4xl text-grey-lawi-400">Maschinen-Assistent</h1>
+          <button type="button" aria-label="Trial Time Button" class="flex items-center gap-2 py-1 px-3 flex-shrink-0 rounded-lg text-sm text-black bg-orange-lawi-100/70 hover:bg-orange-lawi-100/50">
+            Testzeitraum: 10 Tage
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#a)"><path d="M11 17h2v-6h-2v6Zm1-8c.283 0 .52-.096.713-.287A.967.967 0 0 0 13 8a.967.967 0 0 0-.287-.713A.968.968 0 0 0 12 7a.968.968 0 0 0-.713.287A.967.967 0 0 0 11 8c0 .283.096.52.287.713.192.191.43.287.713.287Zm0 13a9.738 9.738 0 0 1-3.9-.788 10.099 10.099 0 0 1-3.175-2.137c-.9-.9-1.612-1.958-2.137-3.175A9.738 9.738 0 0 1 2 12c0-1.383.263-2.683.788-3.9a10.099 10.099 0 0 1 2.137-3.175c.9-.9 1.958-1.612 3.175-2.137A9.738 9.738 0 0 1 12 2c1.383 0 2.683.263 3.9.788a10.098 10.098 0 0 1 3.175 2.137c.9.9 1.613 1.958 2.137 3.175A9.738 9.738 0 0 1 22 12a9.738 9.738 0 0 1-.788 3.9 10.098 10.098 0 0 1-2.137 3.175c-.9.9-1.958 1.613-3.175 2.137A9.738 9.738 0 0 1 12 22Zm0-2c2.233 0 4.125-.775 5.675-2.325C19.225 16.125 20 14.233 20 12c0-2.233-.775-4.125-2.325-5.675C16.125 4.775 14.233 4 12 4c-2.233 0-4.125.775-5.675 2.325C4.775 7.875 4 9.767 4 12c0 2.233.775 4.125 2.325 5.675C7.875 19.225 9.767 20 12 20Z" fill="#1C1B1F"/></g></svg>
+          </button>
+        </div>
+
+        <!-- Main input -->
+        <form action="" method="" id="machine-assistant" class="flex items-center mt-4 mb-0.5">
+          <input type="text" name="main-input" id="main-input" placeholder="Marke / Modell / Type" class="flex-1 pl-4 sm:pl-9 self-stretch bg-grey-lawi-20 text-xl sm:text-4xl placeholder:text-hgMenu-50 text-hgMenu-100 rounded-l-lg outline-none">
+          <button type="submit" aria-label="Submit Main Input" class="flex justify-center items-center rounded-r-lg bg-green-lawi-100 hover:bg-green-lawi-100/80 py-3 sm:py-4 px-3 sm:px-3.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:h-10 sm:w-10 text-white sm:m-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+
+        <section id="result-list" class="hidden">
+          <p class="mt-3 text-xl text-grey-lawi-400">Wählen sie aus unseren Vorschlägen:</p>
+          
+          <!-- Accordion list -->
+          <div class="space-y-4 mt-1 pb-4">
+            <!-- Accordion Componnet -->
+            <div class="rounded-lg border border-green-lawi-100 px-5 py-3">
+              <!-- Accordion Title -->
+              <div aria-labelledby="accordion-header" class="flex items-center justify-between">
+                <h2 aria-labelledby="accordion-title" class="cursor-pointer text-2xl flex items-center text-green-lawi-100/70 w-full">
+                  Traktoren / Standard-Traktoren / <span class="text-hgMenu-100">Steyr <strong>8080i</strong> AT (2022-2024)</span>
+                </h2>              
+                <button type="button" aria-label="Dropdown Arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-lawi-bright-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Accordion Content -->
+              <div aria-labelledby="accordion-content">
+                <div class="flex items-center flex-wrap mt-9 gap-x-3 gap-y-3.5 relative">
+                  <button type="button" aria-label="Select Model Top" class="absolute -top-[72px] right-[42px] h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                    <span>Modell auswählen</span>
+                    <span class="text-[10px] -mt-1.5">ohne Ausstattung</span>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    PS: 349
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Zapfwellendrehzahl: <strong> 1000</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Radaufhängung: <strong> 4</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Dämpfung: <stronng> hydraulisch</stronng>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Motorstaubremse
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                </div>
+                <div class="flex items-center justify-end mt-7">
+                  <div class="flex items-center gap-4">
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">und Ausstattung anapssen</span>
+                    </button>
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">inklusive Ausstattung</span>
+                    </button>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-lawi-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Accordion Componnet -->
+            <div class="rounded-lg border border-green-lawi-100 px-5 py-3">
+              <!-- Accordion Title -->
+              <div aria-labelledby="accordion-header" class="flex items-center justify-between">
+                <h2 aria-labelledby="accordion-title" class="cursor-pointer text-2xl flex items-center text-green-lawi-100/70 w-full">
+                  Traktoren / Forstgeräte / <span class="text-hgMenu-100">Steyr <strong>8080</strong></span>
+                </h2>                
+                <button type="button" aria-label="Dropdown Arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-lawi-bright-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Accordion Content -->
+              <div aria-labelledby="accordion-content">
+                <div class="flex items-center flex-wrap mt-9 gap-x-3 gap-y-3.5 relative">
+                  <button type="button" aria-label="Select Model Top" class="absolute -top-[72px] right-[42px] h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                    <span>Modell auswählen</span>
+                    <span class="text-[10px] -mt-1.5">ohne Ausstattung</span>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    PS: 349
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Zapfwellendrehzahl: <strong> 1000</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Radaufhängung: <strong> 4</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Dämpfung: <stronng> hydraulisch</stronng>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Motorstaubremse
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                </div>
+                <div class="flex items-center justify-end mt-7">
+                  <div class="flex items-center gap-4">
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">und Ausstattung anapssen</span>
+                    </button>
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">inklusive Ausstattung</span>
+                    </button>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-lawi-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Accordion Componnet -->
+            <div class="rounded-lg border border-green-lawi-100 px-5 py-3">
+              <!-- Accordion Title -->
+              <div aria-labelledby="accordion-header" class="flex items-center justify-between">
+                <h2 aria-labelledby="accordion-title" class="cursor-pointer text-2xl flex items-center text-green-lawi-100/70 w-full">
+                  Traktoren / Traktorzubehör / <span class="text-hgMenu-100">Fendt <strong>8080</strong> A T G</span>
+                </h2>
+                <button type="button" aria-label="Dropdown Arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-lawi-bright-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>                
+              </div>
+              <!-- Accordion Content -->
+              <div aria-labelledby="accordion-content">
+                <div class="flex items-center flex-wrap mt-9 gap-x-3 gap-y-3.5 relative">
+                  <button type="button" aria-label="Select Model Top" class="absolute -top-[72px] right-[42px] h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                    <span>Modell auswählen</span>
+                    <span class="text-[10px] -mt-1.5">ohne Ausstattung</span>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    PS: 349
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Zapfwellendrehzahl: <strong> 1000</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Radaufhängung: <strong> 4</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Dämpfung: <stronng> hydraulisch</stronng>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Motorstaubremse
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                </div>
+                <div class="flex items-center justify-end mt-7">
+                  <div class="flex items-center gap-4">
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">und Ausstattung anapssen</span>
+                    </button>
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">inklusive Ausstattung</span>
+                    </button>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-lawi-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Accordion Componnet -->
+            <div class="rounded-lg border border-green-lawi-100 px-5 py-3">
+              <!-- Accordion Title -->
+              <div aria-labelledby="accordion-header" class="flex items-center justify-between">
+                <h2 aria-labelledby="accordion-title" class="cursor-pointer text-2xl flex items-center text-green-lawi-100/70 w-full">
+                  Anhänger / Standard-Anhänger / <span class="text-hgMenu-100">Anhänger PP <strong>8080i</strong> AT</span>
+                </h2>
+                <button type="button" aria-label="Dropdown Arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-lawi-bright-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Accordion Content -->
+              <div aria-labelledby="accordion-content">
+                <div class="flex items-center flex-wrap mt-9 gap-x-3 gap-y-3.5 relative">
+                  <button type="button" aria-label="Select Model Top" class="absolute -top-[72px] right-[42px] h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                    <span>Modell auswählen</span>
+                    <span class="text-[10px] -mt-1.5">ohne Ausstattung</span>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    PS: 349
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Zapfwellendrehzahl: <strong> 1000</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Radaufhängung: <strong> 4</strong>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Dämpfung: <stronng> hydraulisch</stronng>
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Motorstaubremse
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Rückfahreinrichtung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Kabinenfederung
+                  </button>
+                  <button type="button" aria-label="Accordion Item" class="rounded border border-green-lawi-100 text-lg text-grey-lawi-400 px-3 py-1.5 bg-green-lawi-100/20 min-w-[127px]">
+                    Klimaanlage
+                  </button>
+                </div>
+                <div class="flex items-center justify-end mt-7">
+                  <div class="flex items-center gap-4">
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">und Ausstattung anapssen</span>
+                    </button>
+                    <button type="button" aria-label="Select Model" class="h-9 text-lg leading-normal text-grey-lawi-400 flex flex-col justify-center items-center w-[215px] rounded-lg bg-grey-lawi-10">
+                      <span>Modell übernehmen</span>
+                      <span class="text-[10px] -mt-1.5">inklusive Ausstattung</span>
+                    </button>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-lawi-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <a href="/template-2.html" title="Selft Select" class="flex justify-end">
+        <p class="w-auto ml-auto rounded-lg px-5 py-2 sm:py-2.5 text-lg text-grey-lawi-400 mt-7 bg-hell hover:bg-gray-200"> Kategorie selbst wählen</p>
+      </a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="px-3 sm:px-4 py-4 text-white font-light bg-green-lawi-100 mt-auto text-xs">
+      <p>© Copyright 2022 Landwirt.com GmbH Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- Modals -->
+    <div class="fixed inset-0 z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center relative z-10 w-full max-w-sm px-3 m-auto min-h-full">
+        <div class="bg-grey-lawi-20 p-3 pb-5 rounded-2xl relative">
+          <h2 class="font-semibold text-lg sm:text-xl">Hinweis zum Testzeitraum</h2>
+          <button type="button" aria-label="Close Modal" class="absolute top-3 right-3 text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <p class="mt-7 text-hgMenu-100 leading-5">
+            Der Maschinen-Assistent steht nur <strong> Premium Plus </strong> und <strong> Premium Gold Händlern </strong> zur Verfügung. Möchten auch Sie dieses Service weiterhin nutzen, können wir Ihnen sicher die passende Lösung anbieten.
+          </p>
+          <p class="mt-6 text-base sm:text-lg text-green-lawi-100">Wir beraten Sie gerne!</p>
+          <button type="button" aria-label="Submit Modal" class="mt-7 w-full rounded-xl py-2 sm:py-2.5 px-5 bg-green-lawi-100 text-white text-lg">
+            Verkaufsmitarbeiter kontaktieren
+          </button>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity cursor-pointer" aria-label="Close Modal"></div>
+    </div>
+  </div>
+  <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      const mainInput = $('#main-input');
+      const resultList = $('#result-list');
+      resultList.hide();
+      removeHighlightResult();
+
+      mainInput.on('input', function() {
+        const searchValue = $('#main-input').val();
+        if(searchValue.length < 3) {
+          $('[aria-labelledby="accordion-content"]').hide();
+          resultList.hide()
+          removeHighlightResult();
+        }
+      })
+      // main input form submit
+      $('#machine-assistant').submit(function(event) {
+        event.preventDefault();
+
+        const searchValue = $('#main-input').val();
+        if(searchValue.length >= 3) {
+          resultList.show();
+          removeHighlightResult();
+          highlightResult(searchValue);
+        }
+        else {
+          resultList.hide();
+          removeHighlightResult();
+          $('[aria-labelledby="accordion-content"]').hide();
+        }
+      });
+
+      // toggle accordion states
+      const accordionArrow = $('[aria-label="Dropdown Arrow"]');
+      const accordionTitle = $('[aria-labelledby="accordion-title"]');
+      $('[aria-labelledby="accordion-content"]').hide();
+
+
+      accordionArrow.click(function() {
+        var accordionContent = $(this).closest('[aria-labelledby="accordion-header"]').next('[aria-labelledby="accordion-content"]');
+        accordionContent.slideToggle({ duration: 0 });
+        $('[aria-labelledby="accordion-content"]').not(accordionContent).slideUp({ duration: 0 });
+      });
+
+      accordionTitle.click(function() {
+        var accordionContent = $(this).closest('[aria-labelledby="accordion-header"]').next('[aria-labelledby="accordion-content"]');
+        accordionContent.slideToggle({ duration: 0 });
+        $('[aria-labelledby="accordion-content"]').not(accordionContent).slideUp({ duration: 0 });
+      });
+
+      // Toggle modal state
+      const modal = $('[aria-labelledby="modal-title"]');
+      const openModalBtn = $('[aria-label="Trial Time Button"]');
+      const closeBtn = modal.find('[aria-label="Close Modal"]');
+      
+      modal.hide();
+      openModalBtn.click(function(){
+        modal.show();
+      });
+
+      closeBtn.click(function(){
+        modal.hide();
+      });
+
+
+      function highlightResult(searchTerm){
+        $('[aria-labelledby="accordion-title"]').each(function() {
+          var content = $(this).html();
+          var highlightedContent = content.replace(new RegExp(searchTerm, 'gi'), '<span class="highlight text-hgMenu-100"><strong>$&</strong></span>');
+          $(this).html(highlightedContent);
+        });
+      }
+      function removeHighlightResult(){
+        $('[aria-labelledby="accordion-title"] .highlight').each(function() {
+          $(this).replaceWith($(this).text());
+        });
+      }
+    });
+  </script>
+</body>
+</html>
