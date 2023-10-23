@@ -229,7 +229,7 @@
             <!-- Image upload -->
             <div class="overflow-x-hidden">
               <div aria-labelledby="Image Container" class="flex gap-4 mt-8">
-                <div aria-labelledby="Upload Item" class="flex-shrink-0 w-48 h-36">
+                <div aria-labelledby="Image Upload" class="flex-shrink-0 w-48 h-36">
                   <label for="image-upload" id="image-label" class="flex flex-col justify-center w-full h-full items-center text-sm text-hgMenu-50 rounded-lg bg-custom-100/50 border-black/40 border border-dashed cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
                       <mask id="mask0_14202_101638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
@@ -244,7 +244,7 @@
                   </label>
                   <input type="file" name="images[]" id="image-upload" accept="image/*" multiple class="hidden">
                 </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
+                <!-- <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
                   <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
@@ -261,115 +261,7 @@
                     </svg>
                   </button>
                   <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
-                <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div>
+                </div> -->
               </div>
             </div>
             <button type="button" aria-label="Show All Images" class="flex ml-auto mt-3 underline text-lg mb-1.5">
@@ -553,9 +445,65 @@
       displayBlobImage(imageInput[0].files)
     });
 
-    function displayBlobImage(images){
-      console.log(images)
+    const uploadedImages = [];
+    if(uploadedImages.length === 0){
+      $('[aria-label="Show All Images"]').hide();
     }
+    const imageUploadElement = $('[aria-labelledby="Image Upload"]')
+    function displayBlobImage(images){
+     // Iterate through the selected files
+      $.each(images, function (index, file) {
+        // Create a URL for each image and store it in the array
+        const imageURL = URL.createObjectURL(file);
+        const uniqueId = 'image-container-' + Date.now();
+        uploadedImages.push({ id: uniqueId, url: imageURL });
+
+        const imageContainerHtml = `
+          <div id="${uniqueId}" aria-labelledby="Upload Item" class="relative w-48 h-36 max-h-36 rounded-lg flex-shrink-0">
+            <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+            </button>
+            <button data-unique-id="${uniqueId}" data-action="removeImage" type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+            <img src="${imageURL}" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
+          </div>
+        `;
+
+        imageUploadElement.after(imageContainerHtml)
+      });
+      if(uploadedImages.length > 0){
+        $('[aria-label="Show All Images"]').show();
+      }
+      console.log("Images for upload",uploadedImages)
+    }
+
+    $(document).on('click', '[data-action="removeImage"]', function() {
+      const uniqueId = $(this).data('unique-id');
+
+      const indexToRemove = uploadedImages.findIndex(image => image.id === uniqueId);
+      if (indexToRemove !== -1) {
+        uploadedImages.splice(indexToRemove, 1);
+      }
+
+      // Remove image from the DOM
+      $(`#${uniqueId}`).remove();
+
+      if (uploadedImages.length === 0) {
+        $('[aria-label="Show All Images"]').hide();
+      }
+
+      console.log("Image removed. Updated array:", uploadedImages);
+    });
   });
   </script>
 </body>
