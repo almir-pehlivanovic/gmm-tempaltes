@@ -6,6 +6,13 @@
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/tailwind-config.js"></script>
+  <link href ="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  <style>
+    .ui-sortable-helper{
+      max-width: 220px;
+      max-height: 145px;
+    }
+  </style>
 </head>
 <body class="font-source-sans-pro">
   <div class="min-h-screen h-auto bg-hgMenu-250 flex flex-col">
@@ -244,24 +251,6 @@
                   </label>
                   <input type="file" name="images[]" id="image-upload" accept="image/*" multiple class="hidden">
                 </div>
-                <!-- <div aria-labelledby="Upload Item" class="relative w-48 h-36 rounded-lg flex-shrink-0">
-                  <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </button>
-                  <img src="https://images.unsplash.com/photo-1603122768973-3c7c7cda1550?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
-                </div> -->
               </div>
             </div>
             <button type="button" aria-label="Show All Images" class="flex ml-auto mt-3 underline text-lg mb-1.5">
@@ -309,6 +298,9 @@
 
   </div>
   <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- For mobile to enable sorting with touch -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>  -->
   <script>
   $(document).ready(function() {
     const $selectElement = $('[aria-labelledby="Select Option"]');
@@ -402,9 +394,22 @@
 
     const showAllImages = $('[aria-label="Show All Images"]');
     showAllImages.click(function(){
+
+      // Enable image sorting
+      $('[aria-labelledby="Image Container"]').sortable({
+        fixed: '[aria-labelledby="Image Upload"]',
+        items: '[aria-labelledby="Upload Item"]',
+        tolerance: 'pointer',
+        update: function(event, ui) {          
+          changeImagePosition()
+        }       
+      });
+
+      // Toggle class when dispaly all
       $('[aria-labelledby="Image Container"]').removeClass('flex');
       $('[aria-labelledby="Image Container"]').addClass('grid grid-cols-4');
       $('[aria-labelledby="Upload Item"]').addClass('!w-full !h-full');
+      $('[aria-labelledby="Image Upload"]').addClass('!w-full !h-full');
       $(this).hide();
       $('[aria-label="Show Less Images"]').removeClass('hidden');
       $('[aria-label="Show Less Images"]').addClass('flex');
@@ -412,9 +417,11 @@
 
     const showLessImages = $('[aria-label="Show Less Images"]');
     showLessImages.click(function(){
+      // Toggle class when no display all (flex, one row)
       $('[aria-labelledby="Image Container"]').addClass('flex');
       $('[aria-labelledby="Image Container"]').removeClass('grid grid-cols-4');
       $('[aria-labelledby="Upload Item"]').removeClass('!w-full !h-full');
+      $('[aria-labelledby="Image Upload"]').removeClass('!w-full !h-full');
       $('[aria-label="Show Less Images"]').removeClass('flex');
       $('[aria-label="Show All Images"]').show();
       $('[aria-label="Show Less Images"]').addClass('hidden');
@@ -445,18 +452,25 @@
       displayBlobImage(imageInput[0].files)
     });
 
-    const uploadedImages = [];
-    if(uploadedImages.length === 0){
-      $('[aria-label="Show All Images"]').hide();
-    }
-    const imageUploadElement = $('[aria-labelledby="Image Upload"]')
-    function displayBlobImage(images){
-     // Iterate through the selected files
+    let imagesForUpload = [];
+    let uploadedImagesPreview = [];
+    const imageUploadElement = $('[aria-labelledby="Image Container"]')
+
+    if(uploadedImagesPreview.length === 0){ $('[aria-label="Show All Images"]').hide(); }
+    
+    // Display blob and prepare images for upload
+    function displayBlobImage(images){      
+      let currentIndex = uploadedImagesPreview.length + 1
+  
       $.each(images, function (index, file) {
         // Create a URL for each image and store it in the array
         const imageURL = URL.createObjectURL(file);
-        const uniqueId = 'image-container-' + Date.now();
-        uploadedImages.push({ id: uniqueId, url: imageURL });
+        const uniqueId = 'image-container-' + currentIndex + index;
+
+        uploadedImagesPreview.push({ id: uniqueId, position: currentIndex + index, url: imageURL, degrees: 0 });
+        file.position = currentIndex + index;
+        file.degrees = 0;
+        imagesForUpload.push(file);
 
         const imageContainerHtml = `
           <div id="${uniqueId}" aria-labelledby="Upload Item" class="relative w-48 h-36 max-h-36 rounded-lg flex-shrink-0">
@@ -470,40 +484,133 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <button type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
+            <button data-unique-id="${uniqueId}" data-action="rotateImage" type="button" aria-label="Rotate Image" class="absolute bottom-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
             </button>
-            <img src="${imageURL}" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
+            <img src="${imageURL}" image-unique-id="${uniqueId}" class="w-full h-full object-cover rounded-lg cursor-pointer" alt="Uploaded Image">
           </div>
         `;
-
-        imageUploadElement.after(imageContainerHtml)
+  
+        imageUploadElement.append(imageContainerHtml)
       });
-      if(uploadedImages.length > 0){
-        $('[aria-label="Show All Images"]').show();
-      }
-      console.log("Images for upload",uploadedImages)
+
+      if(uploadedImagesPreview.length > 4 && ($('[aria-label="Show Less Images"]').hasClass('hidden'))) { $('[aria-label="Show All Images"]').show(); }
+      
+      console.log("Images for Preview",uploadedImagesPreview)
+      console.log("Images for upload", imagesForUpload)
     }
 
+    // Remove Image method
     $(document).on('click', '[data-action="removeImage"]', function() {
       const uniqueId = $(this).data('unique-id');
 
-      const indexToRemove = uploadedImages.findIndex(image => image.id === uniqueId);
-      if (indexToRemove !== -1) {
-        uploadedImages.splice(indexToRemove, 1);
+      const indexToRemovePreview = uploadedImagesPreview.findIndex(image => image.id === uniqueId);
+      if (indexToRemovePreview !== -1) {
+        uploadedImagesPreview.splice(indexToRemovePreview, 1);
+        imagesForUpload.splice(indexToRemovePreview, 1);
       }
 
       // Remove image from the DOM
       $(`#${uniqueId}`).remove();
 
-      if (uploadedImages.length === 0) {
+      if (uploadedImagesPreview.length === 0) {
         $('[aria-label="Show All Images"]').hide();
       }
 
-      console.log("Image removed. Updated array:", uploadedImages);
+      console.log("Image removed. Preview Images:", uploadedImagesPreview);
+      console.log("Image removed. Upload images:", imagesForUpload);
     });
+
+    // Rotate image
+    $(document).on('click', '[data-action="rotateImage"]', function() {
+      const uniqueId = $(this).data('unique-id');
+      const indexToRemovePreview = uploadedImagesPreview.findIndex(image => image.id === uniqueId);
+      if (indexToRemovePreview !== -1) {
+        const imageToRotate = uploadedImagesPreview[indexToRemovePreview];
+        const image = new Image();
+
+        image.src = imageToRotate.url;
+
+        image.onload = function () {
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+
+          // Set the canvas size to match the image dimensions
+          canvas.width = image.width;
+          canvas.height = image.height;
+
+          // Rotate the image by a specified angle (e.g., 90 degrees clockwise)
+          const rotationAngle = 90;
+          context.translate(image.width / 2, image.height / 2);
+          context.rotate((Math.PI / 180) * rotationAngle);
+          context.drawImage(image, -image.width / 2, -image.height / 2);
+
+          // Convert the rotated canvas to a new Blob
+          canvas.toBlob(function (rotatedBlob) {
+            const rotatedImage = new Image();
+            rotatedImage.src = URL.createObjectURL(rotatedBlob);
+
+            $(`[image-unique-id="${uniqueId}"]`).attr('src', rotatedImage.src);
+            uploadedImagesPreview[indexToRemovePreview].url = rotatedImage.src;
+          });
+        };
+        rotateImage(90, uniqueId)
+      }
+    })
+  
+    // Chnage position with drag and drop
+    function changeImagePosition(){
+      const imageDataById = {};
+
+      uploadedImagesPreview.forEach((image) => {
+        imageDataById[image.id] = image;
+      });
+
+      const newOrder = $('[aria-labelledby="Upload Item"]').map(function () {
+        return $(this).attr('id');
+      }).get();
+
+      const newUploadedImagesPreview = [];
+
+      newOrder.forEach((uniqueId) => {
+        const image = imageDataById[uniqueId];
+        if (image) { newUploadedImagesPreview.push(image); }
+      });
+
+      uploadedImagesPreview = newUploadedImagesPreview;
+    }
+    
+
+    // Submit data
+    $('[aria-label="Save Button"]').on('click', function(){
+      // Sort images for upload  based on the position of the preview images
+      var positionMap = {};
+        $.each(uploadedImagesPreview, function (index, item) {
+        positionMap[item.position] = index;
+      });
+
+      imagesForUpload.sort(function (a, b) {
+        return positionMap[a.position] - positionMap[b.position];
+      });
+
+      console.log("Images for Preview", uploadedImagesPreview)
+      console.log("Images for upload", imagesForUpload)
+    })
+
+    // Methods
+    let currentRotations = {};
+    function rotateImage(degrees, uniqueId) {
+      currentRotations[uniqueId] = (currentRotations[uniqueId] || 0) % 360 + degrees;
+
+      // Update the rotateDegrees key
+      const index = uploadedImagesPreview.findIndex(image => image.id === uniqueId);
+      if (index !== -1) {
+        uploadedImagesPreview[index].degrees = currentRotations[uniqueId] === 360 ? 0 : currentRotations[uniqueId];
+        imagesForUpload[index].degrees = currentRotations[uniqueId] === 360 ? 0 : currentRotations[uniqueId];
+      }
+    }
   });
   </script>
 </body>
