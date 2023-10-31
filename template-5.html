@@ -13,6 +13,9 @@
       max-height: 145px;
     }
   </style>
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="/assets/css/lc_lightbox.css" />
+  <link rel="stylesheet" href="/assets/css/minimal.css" />
 </head>
 <body class="font-source-sans-pro">
   <div class="min-h-screen h-auto bg-hgMenu-250 flex flex-col">
@@ -661,6 +664,10 @@
   </div>
   <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+    <!-- Lightbox -->
+  <script src="/assets/script/lc_lightbox.lite.min.js" type="text/javascript"></script>
+
   <!-- For mobile to enable sorting with touch -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>  -->
   <script>
@@ -838,11 +845,13 @@
 
         const imageContainerHtml = `
           <div id="${uniqueId}" aria-labelledby="Upload Item" class="relative w-48 h-36 max-h-36 rounded-lg flex-shrink-0">
-            <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-              </svg>
-            </button>
+            <a href="${imageURL}" aria-labelledby="Gallery Item" data-lcl-thumb="${imageURL}">
+              <button type="button" aria-label="Full Screen" class="absolute top-0 left-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+              </button>
+            </a>
             <button data-unique-id="${uniqueId}" data-action="removeImage" type="button" aria-label="Remove Image" class="absolute top-0 right-0 rounded-lg bg-green-lawi-10 opacity-80 hover:opacity-100 p-1.5">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -923,6 +932,22 @@
         rotateImage(90, uniqueId)
       }
     })
+
+    // Lightbox handler
+    lc_lightbox('[aria-labelledby="Gallery Item"]', {
+      wrap_class: 'lcl_fade_oc',
+      gallery : true,	
+      thumb_attr: 'data-lcl-thumb', 
+      
+      skin: 'minimal',
+      radius: 0,
+      padding	: 0,
+      border_w: 0,
+      nav_btn_pos: 'middle',
+      show_author:false,
+      show_descr: false,
+      show_title: false
+    });	
   
     // Chnage position with drag and drop
     function changeImagePosition(){
